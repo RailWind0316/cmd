@@ -1,0 +1,41 @@
+@ECHO OFF
+title 重启多媒体
+SET BINDIR=%~dp0
+:_MENU
+CLS
+set tm1=%time:~0,2%
+set tm2=%time:~3,2%
+set tm3=%time:~6,2%
+@echo. 
+echo  现在时间：%date% %tm1%点%TM2%分
+@echo. -----------------------------------------------------------------
+@echo. 
+@echo.                               提示                                                                
+@echo.                       多媒体服务即将重启！
+@echo. 
+@echo. -----------------------------------------------------------------
+@echo.
+@echo.
+timeout /t 2 /nobreak
+cls
+@echo.     
+@echo. 现在时间：%date% %tm1%点%TM2%分
+@echo. ----------------------------------------------------------------- 
+@echo. 
+@echo. 
+@echo.                   多媒体服务正在重启中,请稍等……
+@echo. 
+@echo.
+@echo. -----------------------------------------------------------------
+taskkill /f /t /im jxzc.exe
+taskkill /f /t /im wxxs.exe
+start ""  "C:\Program Files (x86)\jxzc\jxzc.exe" 
+@echo. ----------------------------------------------------------------- 
+@echo. 
+@echo.                         多媒体服务重启成功
+@echo.
+@echo.                          3秒后将关闭该窗口
+@echo. 
+@echo. -----------------------------------------------------------------
+timeout /t 3 /nobreak
+EXIT
